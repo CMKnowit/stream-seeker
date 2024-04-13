@@ -23,12 +23,19 @@ export default async function Home() {
     <div className="bg-black">
       <Hero />
       <Row title="Hacking" items={movies} />
-      <Row title="Top Series" items={movies} />
-      <Row title="Top Movies" items={movies} />
-      <Row title="Action Movies" items={movies} />
-      <Row title="Documentaries" items={movies} />
+      <Row title="Top Series" items={shuffleArray(movies)} />
+      <Row title="Top Movies" items={shuffleArray(movies)} />
+      <Row title="Action Movies" items={shuffleArray(movies)} />
+      <Row title="Documentaries" items={shuffleArray(movies)} />
     </div>
   );
+}
+
+function shuffleArray(array: any[]) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
 }
 
 async function getMovies() {
