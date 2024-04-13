@@ -23,16 +23,16 @@ export default async function Home() {
     <div className="bg-black">
       <Hero />
       <Row title="Hacking" items={movies} />
-      <Row title="Top Series" items={shuffleArray(movies)} />
-      <Row title="Top Movies" items={shuffleArray(movies)} />
-      <Row title="Action Movies" items={shuffleArray(movies)} />
-      <Row title="Documentaries" items={shuffleArray(movies)} />
+      <Row title="More Hacking" items={shuffleArray(movies)} />
+      <Row title="Even More" items={shuffleArray(movies)} />
+      <Row title="Same Hacking?" items={shuffleArray(movies)} />
+      <Row title="Yes, same..." items={shuffleArray(movies)} />
     </div>
   );
 }
 
 function shuffleArray(array: any[]) {
-  let new_array = array;
+  let new_array = array.slice();
   for (let i = new_array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [new_array[i], new_array[j]] = [new_array[j], new_array[i]];
