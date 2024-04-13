@@ -20,7 +20,18 @@ export default function Card({ item }: { item: any }) {
         onClick={openModal}
       >
         <Image src={`/${item.image}`} className="" fill alt="" />
-        <Modal isOpen={isOpen} closeModal={closeModal} />
+        <Modal
+          isOpen={isOpen}
+          closeModal={closeModal}
+          title={item.title}
+          trailer={item.trailer}
+          url={item.url}
+          streamPlatform={item.streamPlatform}
+          rating={item.rating}
+          releaseDate={item.releaseDate}
+          language={item.language}
+          description={item.description}
+        />
       </div>
     </>
   );

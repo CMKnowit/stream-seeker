@@ -12,9 +12,25 @@ import {
 export default function Modal({
   isOpen,
   closeModal,
+  title,
+  trailer,
+  url,
+  rating,
+  releaseDate,
+  streamPlatform,
+  language,
+  description,
 }: {
   isOpen: boolean;
   closeModal: () => void;
+  title: string;
+  trailer: string;
+  url: string;
+  rating: number;
+  releaseDate: string;
+  streamPlatform: string;
+  language: string;
+  description: string;
 }) {
   const [muted, setMuted] = useState(true);
 
@@ -49,29 +65,19 @@ export default function Modal({
                   as="h3"
                   className="text-lg font-medium leading-6 text-white"
                 >
-                  Movie title
+                  {title}
                 </Dialog.Title>
-                {/* <div className="mt-2">
-                  <p className="text-sm text-gray-500">Text...</p>
-                </div>
-
-                <div className="mt-4">
-                  <button type="button" onClick={closeModal}>
-                    Close
-                  </button>
-                </div> */}
                 <>
                   <button
                     onClick={closeModal}
                     className="modalButton absolute right-5 top-5 !z-40 h-9 w-9 border-none hover:bg-opacity-70 text-white"
                   >
-                    {/* <XMarkIcon className="h-6 w-6 text-white" /> */}
                     <FontAwesomeIcon icon={faXmark} size="xl" />
                   </button>
 
                   <div className="relative pt-[40.25%]">
                     <ReactPlayer
-                      url={`https://www.youtube.com/watch?v=N6HGuJC--rk`}
+                      url={`${trailer}`}
                       width="100%"
                       height="100%"
                       style={{ position: "absolute", top: "0", left: "0" }}
@@ -83,26 +89,14 @@ export default function Modal({
                         <button
                           className="flex items-center gap-x-2 rounded bg-red-700 px-8 text-xl font-bold text-white transition hover:bg-red-800"
                           onClick={() => {
-                            window.open(
-                              "https://www.primevideo.com/",
-                              "_blank"
-                            );
+                            window.open(`${url}`, "_blank");
                           }}
                         >
-                          {/* <FaPlay className="h-7 w-7 text-white" /> */}
                           Go To Stream
-                        </button>
-
-                        <button className="modalButton">
-                          {/* <PlusIcon className="h-7 w-7 text-white" /> */}
-                        </button>
-
-                        <button className="modalButton">
-                          {/* <HandThumbUpIcon className="h-7 w-7 text-white" /> */}
                         </button>
                       </div>
                       <button
-                        className="modalButton"
+                        className="modalButton ml-2"
                         onClick={() => setMuted(!muted)}
                       >
                         <div className="h-6 w-6 text-white">
@@ -119,8 +113,8 @@ export default function Modal({
                   <div className="flex space-x-16 rounded-b-md bg-black px-10 py-8 w-full">
                     <div className="space-y-6 text-lg text-white w-full">
                       <div className="flex items-center space-x-2 text-sm">
-                        <p className="font-semibold text-green-400">3.5</p>
-                        <p className="font-light">12 Apr 2024</p>
+                        <p className="font-semibold text-green-400">{rating}</p>
+                        <p className="font-light">{releaseDate}</p>
                         <div className="flex h-4 items-center justify-center rounded border border-white/40 px-1.5 text-xs">
                           HD
                         </div>
@@ -132,14 +126,14 @@ export default function Modal({
                             <span className="text-gray-400">
                               Where to stream:{" "}
                             </span>
-                            Prime
+                            {streamPlatform}
                           </div>
 
                           <div>
                             <span className="text-gray-400">
                               Original language:{" "}
                             </span>
-                            English
+                            {language}
                           </div>
 
                           {/* <div>
@@ -147,7 +141,7 @@ export default function Modal({
                             12
                           </div> */}
                         </div>
-                        <p className="w-1/2">Overview...</p>
+                        <p className="w-1/2">{description}</p>
                       </div>
                     </div>
                   </div>
