@@ -33,7 +33,8 @@ export default async function Home() {
 
 async function getMovies() {
   const res = await fetch(
-    "https://vyd5eehqf8.execute-api.eu-north-1.amazonaws.com/stage/movies"
+    "https://vyd5eehqf8.execute-api.eu-north-1.amazonaws.com/stage/movies",
+    { cache: "no-store" }
   );
   const data = await res.json();
   return data["movies"];

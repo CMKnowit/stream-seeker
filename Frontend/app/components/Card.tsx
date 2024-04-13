@@ -19,7 +19,7 @@ export default function Card({ item }: { item: any }) {
         className="inline-block relative flex-shrink-0 h-60 w-40 cursor-pointer transition duration-200 ease-out hover:scale-110"
         onClick={openModal}
       >
-        <Image src={`/${item.image}`} className="" fill alt="" />
+        <Image src={`${item.image}`} className="" fill alt="" />
         <Modal
           isOpen={isOpen}
           closeModal={closeModal}

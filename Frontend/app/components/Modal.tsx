@@ -86,14 +86,16 @@ export default function Modal({
                     />
                     <div className="absolute bottom-10 flex w-full items-center px-10">
                       <div className="flex space-x-2">
-                        <button
-                          className="flex items-center gap-x-2 rounded bg-red-700 px-8 text-xl font-bold text-white transition hover:bg-red-800"
-                          onClick={() => {
-                            window.open(`${url}`, "_blank");
-                          }}
-                        >
-                          Go To Stream
-                        </button>
+                        {url && (
+                          <button
+                            className="flex items-center gap-x-2 rounded bg-red-700 px-8 text-xl font-bold text-white transition hover:bg-red-800"
+                            onClick={() => {
+                              window.open(`${url}`, "_blank");
+                            }}
+                          >
+                            Go To Stream
+                          </button>
+                        )}
                       </div>
                       <button
                         className="modalButton ml-2"

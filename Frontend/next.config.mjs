@@ -7,6 +7,15 @@ const nextConfig = {
     // !! WARN !!
     ignoreBuildErrors: true,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "stream-seeker-posters.s3.eu-north-1.amazonaws.com",
+        port: "",
+      },
+    ],
+  },
 };
 
 export default nextConfig;
