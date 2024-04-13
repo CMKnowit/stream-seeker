@@ -32,10 +32,12 @@ export default async function Home() {
 }
 
 function shuffleArray(array: any[]) {
-  for (let i = array.length - 1; i > 0; i--) {
+  let new_array = array;
+  for (let i = new_array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
+    [new_array[i], new_array[j]] = [new_array[j], new_array[i]];
   }
+  return new_array;
 }
 
 async function getMovies() {
